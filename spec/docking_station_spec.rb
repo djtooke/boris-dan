@@ -1,7 +1,7 @@
 require 'docking_station'
+require 'bike'
 
-station = DockingStation.new
-bike1 = Bike.new
+
 
 describe DockingStation do
 
@@ -20,10 +20,16 @@ describe DockingStation do
 
   describe "dock"
   it "pushes a bike object into the @bike_array" do
-    station.dock(bike1)
-    expect{(subject.dock(Bike.new)).bike_array}.to include bike1
+    station = DockingStation.new
+    bike1 = Bike.new
+    # station.dock(bike1)
+
+    expect(station.dock(bike1)).to include bike1
   end
+
   it "raises an exception if the dock is full" do
+    station = DockingStation.new
+    20.times do station.dock(Bike.new) end
     expect{station.dock(Bike.new)}.to raise_error
  end
 

@@ -4,7 +4,7 @@ class DockingStation
 
   def initialize
     @bike_array = []
-    @capacity = 1
+    @capacity = 20
   end
 
   def dock(bike)
